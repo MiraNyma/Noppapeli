@@ -18,31 +18,49 @@ namespace Noppapeli
 
     public partial class Form1 : Form
     {
-        // property
-        Noppa noppa1 = new Noppa(20);
+         
+       List<Noppa> noppas = new List<Noppa>();
+
+        
+       
         public Form1()
         {
             InitializeComponent();
+            for (int i=0; i<5; i++)
+            {
+                PictureBox tempPB = new PictureBox();
+                this.Controls.Add(tempPB);
+                Noppa tempNoppa = new Noppa(6, tempPB);
+                noppas.Add(tempNoppa);
+
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            noppa1.Heitto();
-            label1.Text = noppa1.Luku.ToString();
-
-
-
+            
+            
+            for (int i=0; i<noppas.Count; i++)
+            {
+                noppas[i].Heitto();
+                AddPictureBox(noppas[i], 1);
+            }
             // lisää nopalle property "Koko", jolla määritellään
             // montako silmälukua nopalla on
             // ja käytetään sitä luvun arvonnassa
             // nopan koko annetaan sitä generoidessa
         }
-        private void addPictureBox(Noppa noppa, int count)
+        private void AddPictureBox(Noppa noppa, int count)
         {
             const int spacing = 120;
-            PictureBox tempPB = new PictureBox();
-            string key = noppa.GetPictureKey();
-            tempPB.Image=Noppa
+            //PictureBox tempPB = new PictureBox();
+            string key = noppa.GetDiceId();
+            noppa.Boxi.Image = Noppa.GetPictureResourceX(key);
+            noppa.Boxi.Location = new Point(360 + (count - 1) * spacing, 1);
+            noppa.Boxi.Size = new Size(100, 200);
+            noppa.Boxi.SizeMode = PictureBoxSizeMode.Zoom;
+                    
         }
+       
     }
 }

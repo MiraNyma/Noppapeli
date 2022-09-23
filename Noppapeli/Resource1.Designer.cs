@@ -63,9 +63,19 @@ namespace Noppapeli {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Noppa {
+        internal static System.Drawing.Bitmap Noppa1 {
             get {
-                object obj = ResourceManager.GetObject("Noppa", resourceCulture);
+                object obj = ResourceManager.GetObject("Noppa1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Noppa10 {
+            get {
+                object obj = ResourceManager.GetObject("Noppa10", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -117,6 +127,45 @@ namespace Noppapeli {
             get {
                 object obj = ResourceManager.GetObject("Noppa6", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Noppa7 {
+            get {
+                object obj = ResourceManager.GetObject("Noppa7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Noppa8 {
+            get {
+                object obj = ResourceManager.GetObject("Noppa8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Noppa9 {
+            get {
+                object obj = ResourceManager.GetObject("Noppa9", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to int countCards = 0;.
+        /// </summary>
+        internal static string String {
+            get {
+                return ResourceManager.GetString("String", resourceCulture);
             }
         }
     }

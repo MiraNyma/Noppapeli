@@ -90,10 +90,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Noppa.PNG" />
+    <None Include="Resources\Noppa2.PNG" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Noppa2.PNG" />
+    <None Include="Resources\Noppa.PNG" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Noppa6.PNG" />
@@ -106,6 +106,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Noppa3.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Noppa7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Noppa8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Noppa9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Noppa10.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
