@@ -28,12 +28,21 @@ namespace Noppapeli
         private void button1_Click(object sender, EventArgs e)
         {
             noppa1.Heitto();
-
             label1.Text = noppa1.Luku.ToString();
+
+
+
             // lisää nopalle property "Koko", jolla määritellään
             // montako silmälukua nopalla on
             // ja käytetään sitä luvun arvonnassa
             // nopan koko annetaan sitä generoidessa
+        }
+        private void addPictureBox(Noppa noppa, int count)
+        {
+            const int spacing = 120;
+            PictureBox tempPB = new PictureBox();
+            string key = noppa.GetPictureKey();
+            tempPB.Image=Noppa
         }
     }
 }
