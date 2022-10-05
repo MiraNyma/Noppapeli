@@ -10,7 +10,8 @@ namespace Noppapeli
 {
     class Noppa
     {
-        public PictureBox Boxi = new PictureBox();
+        //private Random rng = new Random();
+        public PictureBox Boxi;
         // property
         public int Luku;
         public int Koko;
@@ -20,17 +21,20 @@ namespace Noppapeli
         public Noppa(int koko, PictureBox boxi) // constructor
         {
             Koko = koko;
-            Heitto();
+            //Heitto();
+            Luku = 1;
             Boxi = boxi;
+            Boxi.Size = new Size(50, 100);
+            Boxi.SizeMode = PictureBoxSizeMode.Zoom;
         }
-        public void Heitto()
+        public void Heitto(Random rng)
         {
-            Random rng = new Random();
+            
             Luku = rng.Next(1, Koko+1);
         }
        
             public string GetDiceId()
-        {
+        { 
             const string tiedostonAlku = "Noppa"; // noppa kuvien tiedostot (Resource1.resx) alkaa tekstillä "Noppa"
             string returnValue = tiedostonAlku;
             
