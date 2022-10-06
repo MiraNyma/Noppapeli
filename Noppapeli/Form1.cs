@@ -92,6 +92,7 @@ namespace Noppapeli
             int tnum = 0;
             tnum = int.Parse(Summa.Text);
             Summa.Text = $"{Lopputulos + tnum}";
+            Ykkoset.Enabled = false;
         }
 
         private void Kakkoset_Click(object sender, EventArgs e)
@@ -113,6 +114,7 @@ namespace Noppapeli
             int tnum = 0;
             tnum = int.Parse(Summa.Text);
             Summa.Text = $"{Lopputulos + tnum}";
+            Kakkoset.Enabled = false;
         }
 
         private void Kolmoset_Click(object sender, EventArgs e)
@@ -134,6 +136,7 @@ namespace Noppapeli
                 int tnum = 0;
                 tnum = int.Parse(Summa.Text);
                 Summa.Text = $"{Lopputulos + tnum}";
+                Kolmoset.Enabled = false;
             }
         }
 
@@ -156,6 +159,7 @@ namespace Noppapeli
                 int tnum = 0;
                 tnum = int.Parse(Summa.Text);
                 Summa.Text = $"{Lopputulos + tnum}";
+                Neloset.Enabled = false;
             }
         }
 
@@ -178,7 +182,7 @@ namespace Noppapeli
                 int tnum = 0;
                 tnum = int.Parse(Summa.Text);
                 Summa.Text = $"{Lopputulos + tnum}";
-
+                Vitoset.Enabled = false;
             }
         }
 
@@ -228,6 +232,7 @@ namespace Noppapeli
             int tnum = 0;
             tnum = int.Parse(Summa.Text);
             Summa.Text = $"{väli + tnum}";
+            Pari.Enabled = false;
 
 
             /* int[] pairs = new int[6];
@@ -240,19 +245,39 @@ namespace Noppapeli
 
         private void Yat_Click(object sender, EventArgs e)
         {
-            int Summa = 0;
-
-
-            for (int i = 0; i < noppas.Count; i++)
+            int[] pairs = new int[6];
+            int[] pairValues = new int[6];
+            const int multiplier = 5;
+            int pareja = 0;
+            bool Yatsivastaus = true;
+            for (int i = 0; i < pairs.Length; i++)
             {
-                if (noppas[i].Luku == noppas[i].Luku)
+                pairs[i] = noppas.Where(noppa => noppa.Luku == i + 1).Count();
+            }
+            for (int i = 0; i < pairs.Length; i++)
+            {
+                if (pairs[i] == 5)
                 {
-
-                    Summa++;
+                    // pari on löytynyt
+                    Yatsivastaus = false;
+                    pairValues[i] = (i + 1) * multiplier;
+                    
 
                 }
+                else
+                {
+                    Yat.Text = "0";
+                }
             }
-            Yat.Text = $"{Summa}";
+            if (Yatsivastaus == false)
+            {
+                Yat.Text = "50";
+                int tnum = 0;
+                tnum = int.Parse(Summa.Text);
+                Summa.Text = $"{50 + tnum}";
+                Sattuma.Enabled = false;
+            }
+
         }
 
         private void KolPari_Click(object sender, EventArgs e)
@@ -343,7 +368,7 @@ namespace Noppapeli
             int pareja = 0;
             for (int i = 0; i < pairs.Length; i++)
             {
-                pairs[i] = noppas.Where(test => test.Luku == i + 1).Count();
+                pairs[i] = noppas.Where(noppa => noppa.Luku == i + 1).Count();
             }
             for (int i = 0; i < pairs.Length; i++)
             {
@@ -352,6 +377,7 @@ namespace Noppapeli
                     // pari on löytynyt
                     pareja++;
                     pairValues[i] = (i + 1) * multiplier;
+                    KaksPari.Enabled = false;
                 }
             }
 
@@ -387,6 +413,7 @@ namespace Noppapeli
                         vastaus = dict[noppa.Luku].ToString();
 
                         NelPari.Text = $"{int.Parse(vastaus) * noppa.Luku}";
+                        NelPari.Enabled = false;
                         int tnum = 0;
                         tnum = int.Parse(Summa.Text);
                         Summa.Text = $"{int.Parse(vastaus) * noppa.Luku + tnum}";
@@ -406,18 +433,30 @@ namespace Noppapeli
 
             bool isStraight = true;
             List<int> numerot = new List<int> { 1, 2, 3, 4, 5 };
-            if (isStraight == true)
-            {
-                for (int i = 0; i <= 5; i++)
-                {
 
-                    if (noppas[i].Luku== numerot[i])
-                    {
-                        ViisPari.Text = numerot.Count.ToString();
-                    }
-                    if(!noppas[i].Luku==numerot[i])
+            int tnum = 0;
+
+            for (int i = 0; i < 5; i++)
+            {
+                //pairs[i] = noppas.Where(test => test.Luku == i + 1).Count();
+                if (0 == noppas.Where(nopat => nopat.Luku == numerot[i]).Count()) // ei löydy
+                {
+                    isStraight = false;
+                    ViisPari.Text = 0.ToString();
+                    tnum = int.Parse(Summa.Text);
+                    Summa.Text = $"{tnum + 0}";
                 }
             }
+
+            if (isStraight == true)
+            {
+                Sattuma.Enabled = false;
+                ViisPari.Text = 15.ToString();
+                tnum = int.Parse(Summa.Text);
+                Summa.Text = $"{tnum + 15}";
+            }
+
+
 
             /*    int vastaus = 0;+
             for (int i=0;i<noppas.Count; i++)
@@ -438,7 +477,89 @@ namespace Noppapeli
 
         private void KuusPari_Click(object sender, EventArgs e)
         {
+            bool isStraight = true;
+            List<int> numerot = new List<int> { 2, 3, 4, 5, 6 };
 
+            int tnum = 0;
+
+            for (int i = 0; i < numerot.Count; i++)
+            {
+                //pairs[i] = noppas.Where(test => test.Luku == i + 1).Count();
+                if (0 == noppas.Where(nopat => nopat.Luku == numerot[i]).Count()) // ei löydy
+                {
+                    isStraight = false;
+                    KuusPari.Text = 0.ToString();
+                    tnum = int.Parse(Summa.Text);
+                    Summa.Text = $"{tnum + 0}";
+                }
+            }
+
+            if (isStraight == true)
+            {
+                Sattuma.Enabled = false;
+                KuusPari.Text = 15.ToString();
+                tnum = int.Parse(Summa.Text);
+                Summa.Text = $"{tnum + 15}";
+            }
+        }
+
+        private void Sattuma_Click(object sender, EventArgs e)
+        {
+            if (Ykkoset.Enabled == false && Kakkoset.Enabled == false && Kolmoset.Enabled == false && Neloset.Enabled == false && Vitoset.Enabled == false & Kutoset.Enabled == false)
+            {
+                Sattuma.Text = Summa.Text;
+                Sattuma.Enabled = false;
+            }
+        }
+
+        private void Tays_Click(object sender, EventArgs e)
+        {
+            string vastaus = "";
+            var dict = new Dictionary<int, int>();
+            int[] pairs = new int[6];
+            int[] pairValues = new int[6];
+            const int multiplier = 2;
+            foreach (var noppa in noppas)
+            {
+                if (dict.ContainsKey(noppa.Luku))
+                {
+                    dict[noppa.Luku] = dict[noppa.Luku] + 1;
+                    if (dict[noppa.Luku] == 3)
+                    {
+                        vastaus = dict[noppa.Luku].ToString();
+
+
+                        for (int i = 0; i < pairs.Length; i++)
+                        {
+                            pairs[i] = noppas.Where(test => test.Luku == i + 1).Count();
+                        }
+                        for (int i = 0; i < pairs.Length; i++)
+                        {
+                            if (pairs[i] > 1)
+                            {
+                                pairValues[i] = (i + 1) * multiplier;
+                            }
+                        }
+                        Tays.Text = $"{int.Parse(vastaus) * noppa.Luku}";
+                        int tnum = 0;
+                        Sattuma.Enabled = false;
+                        tnum = int.Parse(Summa.Text);
+                        Summa.Text = $"{int.Parse(vastaus) * noppa.Luku + tnum}";
+                        int väli = pairValues.Max();
+                        Kakkoset.Text = väli.ToString();
+                        tnum = int.Parse(Summa.Text);
+                        Summa.Text = $"{väli + tnum}";
+
+
+                    }
+                }
+                else
+                {
+                    dict.Add(noppa.Luku, 1);
+
+
+                }
+            }
         }
     }
 

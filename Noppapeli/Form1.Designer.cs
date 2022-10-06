@@ -298,7 +298,6 @@ namespace Noppapeli
             this.ViisPari.Name = "ViisPari";
             this.ViisPari.Size = new System.Drawing.Size(76, 23);
             this.ViisPari.TabIndex = 29;
-            this.ViisPari.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ViisPari.UseVisualStyleBackColor = true;
             this.ViisPari.Click += new System.EventHandler(this.ViisPari_Click);
             // 
@@ -326,7 +325,6 @@ namespace Noppapeli
             this.KaksPari.Name = "KaksPari";
             this.KaksPari.Size = new System.Drawing.Size(75, 23);
             this.KaksPari.TabIndex = 26;
-            this.KaksPari.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.KaksPari.UseVisualStyleBackColor = true;
             this.KaksPari.Click += new System.EventHandler(this.KaksPari_Click);
             // 
@@ -372,8 +370,8 @@ namespace Noppapeli
             this.Sattuma.Name = "Sattuma";
             this.Sattuma.Size = new System.Drawing.Size(75, 23);
             this.Sattuma.TabIndex = 32;
-            this.Sattuma.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Sattuma.UseVisualStyleBackColor = true;
+            this.Sattuma.Click += new System.EventHandler(this.Sattuma_Click);
             // 
             // Tays
             // 
@@ -382,6 +380,7 @@ namespace Noppapeli
             this.Tays.Size = new System.Drawing.Size(75, 23);
             this.Tays.TabIndex = 31;
             this.Tays.UseVisualStyleBackColor = true;
+            this.Tays.Click += new System.EventHandler(this.Tays_Click);
             // 
             // Form1
             // 
